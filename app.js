@@ -8,8 +8,7 @@ function getComputerChoice() {
 const playerSelection = 'rock';
 const computerSelection = getComputerChoice();
 
-console.log(`Player chose ${playerSelection}`);
-console.log(`Computer chose ${computerSelection}`)
+
 
 //simulate one round of the game and return results of the battle based on which weapons went against each other
 function playRound(playerSelection, computerSelection) {
@@ -34,9 +33,20 @@ function playRound(playerSelection, computerSelection) {
     } else if (playerSelection === computerSelection) {
         return 'it\'s a tie...battle again';
     } else {
-        return 'something went wrong :('
+        return 'something went wrong :(';
     }
 }
 
-console.log(playRound(playerSelection, computerSelection))
+
+function game() {
+    for (let round = 0; round < 5; round++) {
+        const playerSelection = 'rock';
+        const computerSelection = getComputerChoice();
+        console.log(`Player chose ${playerSelection}`);
+        console.log(`Computer chose ${computerSelection}`)
+        console.log(playRound(playerSelection, computerSelection));
+    }
+}
+
+game();
 
