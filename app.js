@@ -5,12 +5,10 @@ function getComputerChoice() {
     return weapons[random];
 }
 
-//const playerSelection = prompt('Choose your weapon').toLocaleLowerCase();
-//const computerSelection = getComputerChoice();
 
-
-
-//simulate one round of the game and return results of the battle based on which weapons went against each other
+/*logic for simulating one round of the game;
+return results of the battle based on 
+which weapons went against each other*/
 function playRound(playerSelection, computerSelection) {
     if (playerSelection === 'rock'
         && computerSelection === 'paper') {
@@ -37,7 +35,7 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
-
+//play 5 rounds of the game
 function game() {
     for (let round = 0; round < 5; round++) {
         const playerSelection = prompt('Choose your weapon').toLocaleLowerCase();
@@ -46,6 +44,12 @@ function game() {
         console.log(`Computer chose ${computerSelection}`)
         console.log(playRound(playerSelection, computerSelection));
     }
+    /*next need to create a score keeper + 
+    announce the winner after 5 rounds
+
+    might also need to clean up code 
+    and try alternative approach 
+    (maybe use do while loop)*/
 }
 
 game();
