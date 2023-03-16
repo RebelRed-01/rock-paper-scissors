@@ -5,7 +5,7 @@ function getComputerChoice() {
     return weapons[random];
 }
 
-const playerSelection = 'rock';
+const playerSelection = prompt('Choose your weapon').toLocaleLowerCase();
 const computerSelection = getComputerChoice();
 
 
@@ -33,14 +33,14 @@ function playRound(playerSelection, computerSelection) {
     } else if (playerSelection === computerSelection) {
         return 'it\'s a tie...battle again';
     } else {
-        return 'something went wrong :(';
+        return 'INVALID SELECTION. YOU MUST CHOOSE ROCK, PAPER, OR SCISSORS';
     }
 }
 
 
 function game() {
     for (let round = 0; round < 5; round++) {
-        const playerSelection = 'rock';
+        const playerSelection = prompt('Choose your weapon').toLocaleLowerCase();
         const computerSelection = getComputerChoice();
         console.log(`Player chose ${playerSelection}`);
         console.log(`Computer chose ${computerSelection}`)
