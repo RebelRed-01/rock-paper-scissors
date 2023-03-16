@@ -5,8 +5,8 @@ function getComputerChoice() {
     return weapons[random];
 }
 
-const playerSelection = prompt('Choose your weapon').toLocaleLowerCase();
-const computerSelection = getComputerChoice();
+//const playerSelection = prompt('Choose your weapon').toLocaleLowerCase();
+//const computerSelection = getComputerChoice();
 
 
 
