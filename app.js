@@ -1,4 +1,4 @@
-//generate random weapon selection for computer
+//generate random weapon selection for computer;
 function getComputerChoice() {
     const weapons = ['rock', 'paper', 'scissors'];
     let random = Math.floor(Math.random() * 3);
@@ -9,9 +9,11 @@ let playerScore = 0;
 let computerScore = 0;
 
 
-/*logic for simulating one round of the game;
-return results of the battle based on 
-which weapons went against each other*/
+/*
+logic for simulating one round of the game;
+increments the score; 
+returns weapon choice and result of the battle;
+*/
 function playRound(playerSelection, computerSelection) {
     if (playerSelection === 'rock'
         && computerSelection === 'paper') {
@@ -44,9 +46,11 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
-//play 5 rounds of the game and alert winner at the end
-//present scores for each player at the end of 5 rounds
-
+/*
+play 5 rounds of the game and alert winner at the end;
+present scores for each player at the end of 5 rounds;
+alerts the winner;
+*/
 function game() {
     for (let round = 1; round < 6; round++) {
         const playerSelection = prompt('Choose your weapon').toLocaleLowerCase();
