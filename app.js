@@ -40,7 +40,7 @@ function playRound(playerSelection, computerSelection) {
     } else if (playerSelection === computerSelection) {
         return 'it\'s a tie...battle again';
     } else {
-        return 'INVALID SELECTION. YOU MUST CHOOSE ROCK, PAPER, OR SCISSORS';
+        return alert('INVALID SELECTION. YOU MUST CHOOSE ROCK, PAPER, OR SCISSORS');
     }
 }
 
