@@ -44,9 +44,11 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
-//play 5 rounds of the game
+//play 5 rounds of the game and alert winner at the end
+//present scores for each player at the end of 5 rounds
+
 function game() {
-    for (let round = 0; round < 5; round++) {
+    for (let round = 1; round < 6; round++) {
         const playerSelection = prompt('Choose your weapon').toLocaleLowerCase();
         const computerSelection = getComputerChoice();
 
@@ -55,25 +57,18 @@ function game() {
 
         console.log(playRound(playerSelection, computerSelection));
 
-        if (round === 4) {
+        if (round === 5) {
             console.log(`Player scored ${playerScore} points`);
             console.log(`Computer scored ${computerScore} points`);
             if (playerScore > computerScore) {
-                console.log('Player wins the game!');
+                alert('Player wins the game!');
             } else if (computerScore > playerScore) {
-                console.log('Computer wins the game!');
+                alert('Computer wins the game!');
             } else {
-                console.log('You tied the game. Play again for a tie breaker?')
+                alert('You tied the game. Play again for a tie breaker?')
             }
         }
-
     }
-    /*next need to create a score keeper + 
-    announce the winner after 5 rounds
-
-    might also need to clean up code 
-    and try alternative approach 
-    (maybe use do while loop)*/
 }
 
 game();
