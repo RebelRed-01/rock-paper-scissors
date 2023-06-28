@@ -1,3 +1,11 @@
+const rockBtn = document.querySelector('#rock-btn');
+const paperBtn = document.querySelector('#paper-btn');
+const scissorsBtn = document.querySelector('#scissors-btn');
+
+let playerScore = 0;
+let computerScore = 0;
+
+
 //generate random weapon selection for computer;
 function getComputerChoice() {
     const weapons = ['rock', 'paper', 'scissors'];
@@ -5,16 +13,13 @@ function getComputerChoice() {
     return weapons[random];
 }
 
-let playerScore = 0;
-let computerScore = 0;
-
 
 /*
 logic for simulating one round of the game;
 increments the score; 
 returns weapon choice and result of the battle;
 */
-function playRound(playerSelection, computerSelection) {
+function playRound(playerSelection, computerSelection) {    
     if (playerSelection === 'rock'
         && computerSelection === 'paper') {
         computerScore++;
@@ -41,19 +46,20 @@ function playRound(playerSelection, computerSelection) {
         return 'Scissors beats paper.Player wins!';
     } else if (playerSelection === computerSelection) {
         return 'it\'s a tie...battle again';
-    } else {
-        return alert('INVALID SELECTION. YOU MUST CHOOSE ROCK, PAPER, OR SCISSORS');
     }
 }
 
-const rockBtn = document.querySelector('#rock-btn');
-const paperBtn = document.querySelector('#paper-btn');
-const scissorsBtn = document.querySelector('#scissors-btn');
 
-rockBtn.addEventListener('click', playRound('rock', computerSelection));
-paperBtn.addEventListener('click', playRound('paper', computerSelection));
-scissorsBtn.addEventListener('click', playRound('scissor', computerSelection));
-
+//player makes selection and one round of the game is simulated;
+rockBtn.addEventListener('click', () => {
+    console.log(playRound('rock', getComputerChoice()));
+});
+paperBtn.addEventListener('click', () => {
+    console.log(playRound('paper', getComputerChoice()));
+});
+scissorsBtn.addEventListener('click', () => {
+    console.log(playRound('scissors', getComputerChoice()));
+});
 
 
 /*
@@ -63,7 +69,6 @@ alerts the winner;
 
 function game() {
     for (let round = 1; round < 6; round++) {
-        const playerSelection = prompt('Choose your weapon').toLocaleLowerCase();
         const computerSelection = getComputerChoice();
 
         console.log(`Player chose ${playerSelection}`);
