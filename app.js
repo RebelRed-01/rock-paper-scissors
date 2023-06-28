@@ -46,11 +46,21 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
+const rockBtn = document.querySelector('#rock-btn');
+const paperBtn = document.querySelector('#paper-btn');
+const scissorsBtn = document.querySelector('#scissors-btn');
+
+rockBtn.addEventListener('click', playRound('rock', computerSelection));
+paperBtn.addEventListener('click', playRound('paper', computerSelection));
+scissorsBtn.addEventListener('click', playRound('scissor', computerSelection));
+
+
+
 /*
 play 5 rounds of the game and alert winner at the end;
 present scores for each player at the end of 5 rounds;
 alerts the winner;
-*/
+
 function game() {
     for (let round = 1; round < 6; round++) {
         const playerSelection = prompt('Choose your weapon').toLocaleLowerCase();
@@ -76,4 +86,4 @@ function game() {
 }
 
 game();
-
+*/
