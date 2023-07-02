@@ -2,6 +2,8 @@ const rockBtn = document.querySelector('#rock-btn');
 const paperBtn = document.querySelector('#paper-btn');
 const scissorsBtn = document.querySelector('#scissors-btn');
 const infoContainer = document.querySelector('.info-container');
+const pScore = document.querySelector('.p-score');
+const cScore = document.querySelector('.c-score');
 
 let playerScore = 0;
 let computerScore = 0;
@@ -18,7 +20,7 @@ function getComputerChoice() {
 /*
 logic for simulating one round of the game;
 increments the score; 
-returns weapon choice and result of the battle;
+returns wresult of the battle;
 */
 function playRound(playerSelection, computerSelection) {    
     if (playerSelection === 'rock'
@@ -51,6 +53,16 @@ function playRound(playerSelection, computerSelection) {
 }
 
 
+//End game when 5 points is reached
+
+function endGame() {
+    if (playerScore === 5) {
+        alert('Congratulations! You win the game')
+    } else if (computerScore === 5) {
+        alert('The computer wins. Try again')
+    }
+}
+
 /*
 player makes selection and one round of the game is simulated;
 once pressed render choices and result
@@ -67,6 +79,11 @@ function renderGame() {
     result.textContent = `${playRound(playerSelection, computerSelection)}`;
 
     infoContainer.append(player, computer, result);
+
+
+    pScore.textContent = playerScore;
+    cScore.textContent = computerScore;
+    endGame()
    }
 
 
@@ -87,33 +104,6 @@ scissorsBtn.addEventListener('click', () => {
 });
 
 
-/*
-play 5 rounds of the game and alert winner at the end;
-present scores for each player at the end of 5 rounds;
-alerts the winner;
 
-function game() {
-    for (let round = 1; round < 6; round++) {
-        const computerSelection = getComputerChoice();
 
-        console.log(`Player chose ${playerSelection}`);
-        console.log(`Computer chose ${computerSelection}`)
 
-        console.log(playRound(playerSelection, computerSelection));
-
-        if (round === 5) {
-            console.log(`Player scored ${playerScore} points`);
-            console.log(`Computer scored ${computerScore} points`);
-            if (playerScore > computerScore) {
-                alert('Player wins the game!');
-            } else if (computerScore > playerScore) {
-                alert('Computer wins the game!');
-            } else {
-                alert('You tied the game. Play again for a tie breaker?')
-            }
-        }
-    }
-}
-
-game();
-*/
