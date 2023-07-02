@@ -19,8 +19,8 @@ function getComputerChoice() {
 
 /*
 logic for simulating one round of the game;
-increments the score; 
-returns wresult of the battle;
+increments the score for winner; 
+returns result of the battle;
 */
 function playRound(playerSelection, computerSelection) {    
     if (playerSelection === 'rock'
@@ -53,40 +53,53 @@ function playRound(playerSelection, computerSelection) {
 }
 
 
-//End game when 5 points is reached
-
+/*
+End game when 3 points is reached;
+alert winner and reset the scores/results
+*/
 function endGame() {
-    if (playerScore === 5) {
+    if (playerScore === 3) {
         alert('Congratulations! You win the game')
-    } else if (computerScore === 5) {
+        playerScore = 0;
+        computerScore = 0;
+        while (infoContainer.hasChildNodes()) {
+            infoContainer.removeChild(infoContainer.firstChild);
+        }
+
+    } else if (computerScore === 3) {
         alert('The computer wins. Try again')
+        playerScore = 0;
+        computerScore = 0;
+        while (infoContainer.hasChildNodes()) {
+            infoContainer.removeChild(infoContainer.firstChild);
+        }
     }
 }
 
 /*
-player makes selection and one round of the game is simulated;
-once pressed render choices and result
-update score.
+render player selection and result of simulating one round;
+update score and check for end-game;
 */
 function renderGame() {
     const player = document.createElement('p');
+    const computer = document.createElement('p'); 
+    const result = document.createElement('p');  
+
     player.textContent = `You chose: ${playerSelection}`;
-
-    const computer = document.createElement('p');
     computer.textContent = `The computer chose: ${computerSelection}`;
-
-    const result = document.createElement('p');
     result.textContent = `${playRound(playerSelection, computerSelection)}`;
-
     infoContainer.append(player, computer, result);
-
 
     pScore.textContent = playerScore;
     cScore.textContent = computerScore;
-    endGame()
+
+    endGame();
    }
 
-
+/*
+when button is pressed player and computer selections are generated 
+game information is rendered
+*/
 rockBtn.addEventListener('click', () => {
     playerSelection = 'rock';
     computerSelection = getComputerChoice();
