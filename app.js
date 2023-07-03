@@ -81,6 +81,9 @@ render player selection and result of simulating one round;
 update score and check for end-game;
 */
 function renderGame() {
+    while (infoContainer.hasChildNodes()) {
+        infoContainer.removeChild(infoContainer.firstChild);
+    }
     const player = document.createElement('p');
     const computer = document.createElement('p'); 
     const result = document.createElement('p');  
